@@ -71,31 +71,31 @@ class Person: Codable, Identifiable {
         } else {
             self.name = ""
         }
-//        name = try values.decode(String.self, forKey: .name)
+
         if let photo = try values.decodeIfPresent(String.self, forKey: .photo) {
             self.photo = photo
         } else {
             self.photo = ""
         }
-//        photo = try values.decode(String.self, forKey: .photo)
+
         if let enName = try values.decodeIfPresent(String.self, forKey: .enName) {
             self.enName = enName
         } else {
             self.enName = ""
         }
-//        character = try values.decode(String.self, forKey: .character)
+
         if let character = try values.decodeIfPresent(String.self, forKey: .character) {
             self.character = character
         } else {
             self.character = ""
         }
-//        profession = try values.decode(String.self, forKey: .profession)
+
         if let profession = try values.decodeIfPresent(String.self, forKey: .profession) {
             self.profession = profession
         } else {
             self.profession = ""
         }
-//        enProfession = try values.decode(String.self, forKey: .enProfession)
+
         if let enProfession = try values.decodeIfPresent(String.self, forKey: .enProfession) {
             self.enProfession = enProfession
         } else {

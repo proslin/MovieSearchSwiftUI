@@ -79,13 +79,13 @@ struct APIConstants {
     static let apiKey: String = "8END4KV-EQ54NV1-KK714FW-MPF1JJQ"
     
     static let jsonDecoder: JSONDecoder = {
-           let jsonDecoder = JSONDecoder()
-                jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-           let dateFormatter = DateFormatter()
-               dateFormatter.dateFormat = "yyyy-mm-dd"
-               jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
-            return jsonDecoder
-          }()
+        let jsonDecoder = JSONDecoder()
+        jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-mm-dd"
+        jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return jsonDecoder
+    }()
 }
 
 class MovieAPI {
@@ -141,16 +141,15 @@ class MovieAPI {
             .eraseToAnyPublisher()
     }
     
-    func fetchMoviesErr1(from endpoint: Endpoint) ->
-    AnyPublisher<[Movie], MovieError>{
+    func fetchMoviesErr1(from endpoint: Endpoint) -> AnyPublisher<[Movie], MovieError> {
         return Future<[Movie], MovieError> { [unowned self] promise in
             guard let url = endpoint.absoluteURL  else {
-                return promise(.failure(.urlError(                          // 0
+                return promise(.failure(.urlError(
                     URLError(.unsupportedURL))))
             }
             
-            URLSession.shared.dataTaskPublisher(for: url)                  // 1
-                .tryMap { (data, response) -> Data in                       // 2
+            URLSession.shared.dataTaskPublisher(for: url)
+                .tryMap { (data, response) -> Data in
                     guard let httpResponse = response as? HTTPURLResponse,
                           200...299 ~= httpResponse.statusCode else {
                         throw MovieError.responseError(
@@ -160,10 +159,10 @@ class MovieAPI {
                     return data
                 }
                 .decode(type: MovieResponse.self,
-                        decoder: APIConstants.jsonDecoder) // 3
-                .receive(on: RunLoop.main)                                       // 4
+                        decoder: APIConstants.jsonDecoder)
+                .receive(on: RunLoop.main)
                 .sink(
-                    receiveCompletion: { (completion) in                          // 5
+                    receiveCompletion: { (completion) in
                         if case let .failure(error) = completion {
                             switch error {
                             case let urlError as URLError:
@@ -177,15 +176,14 @@ class MovieAPI {
                             }
                         }
                     },
-                    receiveValue: { promise(.success($0.docs)) })             // 6
-                .store(in: &self.subscriptions)                                // 7
+                    receiveValue: { promise(.success($0.docs)) })
+                .store(in: &self.subscriptions)
         }
-        .eraseToAnyPublisher()                                              // 8
+        .eraseToAnyPublisher()
     }
     
     // Выборка коллекции фильмов с сообщением об ошибке
-        func fetchMoviesErr(from endpoint: Endpoint) ->
-    AnyPublisher<[Movie], MovieError>{
+    func fetchMoviesErr(from endpoint: Endpoint) -> AnyPublisher<[Movie], MovieError> {
         Future<[Movie], MovieError> { [unowned self] promise in
             guard let url = endpoint.absoluteURL  else {
                 return promise(
@@ -214,8 +212,8 @@ class MovieAPI {
                             }
                         }
                     },
-                    receiveValue: { promise(.success($0)) })                     // 4
-                .store(in: &self.subscriptions)                                 // 5
+                    receiveValue: { promise(.success($0)) })
+                .store(in: &self.subscriptions)
         }
         .eraseToAnyPublisher()
     }

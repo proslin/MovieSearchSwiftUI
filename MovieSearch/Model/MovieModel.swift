@@ -27,7 +27,6 @@ class Movie: Codable, Identifiable {
     var countries: Array<BasicNameItem> = []
     var rating: RatingModel?
     @Relationship(deleteRule: .cascade) var persons = [Person]()
-//    var persons: Array<Person>? = []
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -109,7 +108,6 @@ class Movie: Codable, Identifiable {
         try container.encode(genres, forKey: .genres)
         try container.encode(countries, forKey: .countries)
         try container.encode(rating, forKey: .rating)
-//        try container.encode(persons, forKey: .persons)
     }
     
     func getStringFromNames(_ basicItemsArray: Array<BasicNameItem>) -> String {

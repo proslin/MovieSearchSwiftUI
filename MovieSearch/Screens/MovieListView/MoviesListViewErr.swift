@@ -18,7 +18,6 @@ struct MoviesListViewErr: View {
                     Text("Мультики").tag(2)
                     Text("Аниме").tag(3)
                     Text("Мульт сериалы").tag(4)
-                    
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 List(moviesViewModel.movies) { movie in

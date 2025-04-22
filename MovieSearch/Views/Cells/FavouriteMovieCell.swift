@@ -27,8 +27,6 @@ struct FavouriteMovieCell: View {
                     .font(.body)
                     .foregroundStyle(.secondary)
                     .fontWeight(.medium)
-                
-                //            Text(movie.description)
             }
             Spacer()
             Text("\(movie.rating?.kp ?? 0.0, specifier: "%.1f")")

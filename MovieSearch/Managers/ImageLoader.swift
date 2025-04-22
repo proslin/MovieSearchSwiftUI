@@ -37,7 +37,6 @@ class ImageLoaderCache {
             let pathURL = URL(string: path) else {
                 return ImageLoader (url: nil)
             }
-//            let pathString = ImageAPI.Size.cast.path (poster: path)
             let loader = ImageLoader(url: pathURL)
             loaders.setObject(loader, forKey: key)
             return loader

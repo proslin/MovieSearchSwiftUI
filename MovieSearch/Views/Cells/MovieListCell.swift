@@ -53,14 +53,6 @@ struct MovieListCell: View {
         }
         return .red
     }
-    
-//    func getStringFromNames(_ basicItemsArray: Array<BasicNameItem>) -> String {
-//        var finalString: String = ""
-//        for (indx, elem) in basicItemsArray.enumerated() {
-//            finalString += (indx == basicItemsArray.count - 1) ? (elem.name) : elem.name + ", "
-//        }
-//        return finalString
-//    }
 }
 
 #Preview {

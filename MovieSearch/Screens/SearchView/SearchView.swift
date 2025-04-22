@@ -20,11 +20,10 @@ struct SearchView: View {
                         text: $searchText,
                         onCommit: performSearch)
                     .frame(height: 50)
-                                                .background(.white)
-                                                .foregroundStyle(.black)
-                                                .textFieldStyle(RoundedBorderTextFieldStyle())
-                                                .clipShape(RoundedRectangle(cornerRadius: 8))
-//                    .textFieldStyle(.roundedBorder)
+                    .background(.white)
+                    .foregroundStyle(.black)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                     if !searchText.isEmpty {
                         Button {
                             searchText = ""
@@ -36,35 +35,13 @@ struct SearchView: View {
                         .foregroundStyle(.secondary)
                         .padding(.trailing, 10)
                     }
-                    
-                    //                        .textFieldStyle(RoundedBorderTextFieldStyle())
                     Button(action: performSearch) {
                         Image(systemName: "magnifyingglass")
                     }
                     .foregroundStyle(.secondary)
                 }
                 .padding()
-                
-                //                        .onAppear(perform: {
-                //                            UITextField.appearance().clearButtonMode = .whileEditing
-                //                        })
-                //                    HStack {
-                //                        TextField("", text: $searchText)
-                //                            if !searchText.isEmpty {
-                //                                Button {
-                //                                    searchText = ""
-                //                                    viewModel.getMovies(searchString: searchText)
-                //                                }label: {
-                //                                    Image(systemName: "multiply.circle.fill")
-                //                                }
-                //                                .padding(.trailing, 10)
-                //                            }
-                //                    }
-                //                    .border(.blue)
-                
-                //                }   .padding()
-                //                SearchBar(searchString: viewModel.searchTerm)
-                //                Text("Searching for \(searchText)")
+
                 List(viewModel.movies) { movie in
                     MovieListCell(movie: movie)
                         .onTapGesture {
