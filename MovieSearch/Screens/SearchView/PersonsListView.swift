@@ -8,26 +8,30 @@
 import SwiftUI
 
 struct PersonsListView: View {
-    let persons: Array<Person>
+//    let persons: Array<Person>
+    @ObservedObject var castsViewModel: CastViewModel
     
     var body: some View {
         ScrollView(.horizontal) {
             HStack (spacing: 15) {
-                ForEach(persons) { person in
+//                ForEach(persons) { person in
+                ForEach (castsViewModel.casts) { person in
                     VStack {
-                        AsyncImage(url: URL(string: person.photo ?? "")) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: 90, height: 120)
-                                .padding()
-                        } placeholder: {
-                            Image("placeholder")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 90, height: 120)
-                            .padding()
-                        }
+//                        MovieRemoteImage(imageLoader: ImageLoaderCache.shared.loaderFor(movie: movie), posterSize: .medium)
+                        MovieRemoteImage(imageLoader: ImageLoaderCache.shared.loaderFor(cast: person), posterSize: .medium)
+//                        AsyncImage(url: URL(string: person.photo ?? "")) { image in
+//                            image
+//                                .resizable()
+//                                .aspectRatio(contentMode: .fit)
+//                                .frame(width: 90, height: 120)
+//                                .padding()
+//                        } placeholder: {
+//                            Image("placeholder")
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(width: 90, height: 120)
+//                            .padding()
+//                        }
                         Text(person.name)
                         Text(person.enName ?? "")
                         Text(person.character ?? "")
@@ -38,6 +42,6 @@ struct PersonsListView: View {
     }
 }
 
-#Preview {
-    PersonsListView(persons: MockData.personsSampleList)
-}
+//#Preview {
+//    PersonsListView(persons: MockData.personsSampleList)
+//}

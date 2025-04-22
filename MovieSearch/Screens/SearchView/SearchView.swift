@@ -78,12 +78,6 @@ struct SearchView: View {
                 }
                 .navigationTitle("Список фильмов")
             }
-            //            .searchable(text: $searchText)
-            //            .task {
-            //                viewModel.getMovies(searchString: searchText)
-            //            }
-            
-            
         }
         .alert(item: $viewModel.alertItem) { alertItem in
             Alert(title: alertItem.title,
@@ -97,41 +91,6 @@ struct SearchView: View {
     }
 }
 
-
-
-//VStack {
-//                    SearchBar(text: $viewModel.searchTerm,
-//                              onSearchButtonClicked: viewModel.onSearchTapped)
-//                    List(viewModel.games, id: \.title) { game in
-//                        Text(verbatim: game.title)
-//                    }
-//                }
-
-
-
 #Preview {
     SearchView()
 }
-
-//struct SearchBar: View {
-//
-//    @State var searchString: String = ""
-//
-//    var body: some View {
-//
-//        HStack {
-//            TextField(
-//                "Start typing",
-//                text: $searchString,
-//                onCommit: performSearch)
-//                .textFieldStyle(RoundedBorderTextFieldStyle())
-//            Button(action: performSearch) {
-//                Image(systemName: "magnifyingglass")
-//            }
-//        }   .padding()
-//    }
-//
-//    func performSearch() {
-//        viewModel.getMovies(searchString: $searchString)
-//    }
-//}

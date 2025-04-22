@@ -22,3 +22,18 @@ extension View {
         self.modifier(StandardButtonStyle())
     }
 }
+
+struct PressedButtonStyle: ButtonStyle {
+    let color: Color
+    let pressedColor: Color
+
+    func makeBody(configuration: Configuration) -> some View {
+           configuration.label
+               .padding()
+               .background(configuration.isPressed ? pressedColor : color)
+               .foregroundColor(.white)
+               .clipShape(RoundedRectangle(cornerRadius: 10))
+               .scaleEffect(configuration.isPressed ? 0.95 : 1.0)
+               .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+       }
+}

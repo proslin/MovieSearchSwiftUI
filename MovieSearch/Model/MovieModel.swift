@@ -8,6 +8,11 @@
 import Foundation
 import SwiftData
 
+
+struct MovieResponse: Codable {
+    let docs: Array<Movie>
+}
+
 @Model
 class Movie: Codable, Identifiable {
     @Attribute(.unique) var id: Int
@@ -57,17 +62,38 @@ class Movie: Codable, Identifiable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
-        name = try values.decode(String.self, forKey: .name)
-        alternativeName = try values.decode(String.self, forKey: .alternativeName)
-        enName = try values.decode(String.self, forKey: .enName)
-        year = try values.decode(Int.self, forKey: .year)
-        fullDescription = try values.decode(String.self, forKey: .fullDescription)
-        movieLength = try values.decode(Int.self, forKey: .movieLength)
-        poster = try values.decode(ImageURLs.self, forKey: .poster)
-        genres = try values.decode(Array<BasicNameItem>.self, forKey: .genres)
-        countries = try values.decode(Array<BasicNameItem>.self, forKey: .countries)
-        rating = try values.decode(RatingModel.self, forKey: .rating)
-//        persons = try values.decode(Array<Person>.self, forKey: .persons)
+        if let name = try values.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name
+        } else {
+            self.name = ""
+        }
+
+        if let alternativeName = try values.decodeIfPresent(String.self, forKey: .alternativeName) {
+            self.alternativeName = alternativeName
+        } else {
+            self.alternativeName = ""
+        }
+
+        if let enName = try values.decodeIfPresent(String.self, forKey: .enName) {
+            self.enName = enName
+        } else {
+            self.enName = ""
+        }
+
+        year = try values.decodeIfPresent(Int.self, forKey: .year) ?? 0
+        
+        if let fullDescription = try values.decodeIfPresent(String.self, forKey: .fullDescription) {
+            self.fullDescription = fullDescription
+        } else {
+            self.fullDescription = ""
+        }
+        
+        movieLength = try values.decodeIfPresent(Int.self, forKey: .movieLength) ?? 0
+        poster = try values.decodeIfPresent(ImageURLs.self, forKey: .poster)
+   
+        genres = try values.decodeIfPresent(Array<BasicNameItem>.self, forKey: .genres) ?? []
+        countries = try values.decodeIfPresent(Array<BasicNameItem>.self, forKey: .countries) ?? []
+        rating = try values.decodeIfPresent(RatingModel.self, forKey: .rating)
     }
     
     func encode(to encoder: Encoder) throws {
@@ -99,14 +125,10 @@ struct ImageURLs: Codable {
     let url: String?
     let previewUrl: String?
     
-    enum posterCodingKeys: String, CodingKey {
-            case url
-            case previewUrl = "previewUrl"
-        }
-}
-
-struct MovieResponse: Codable {
-    let docs: Array<Movie>
+//    enum posterCodingKeys: String, CodingKey {
+//            case url
+//            case previewUrl = "previewUrl"
+//        }
 }
 
 struct BasicNameItem: Codable {

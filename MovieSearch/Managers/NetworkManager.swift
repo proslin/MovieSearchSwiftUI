@@ -10,22 +10,6 @@ import Combine
 import UIKit
 import SwiftUI
 
-enum Endpoint {
-    case search (searchString: String)
-    
-    var baseURL: URL {
-        URL(string: "https://api.kinopoisk.dev/v1.4/movie/search?page=1&limit=10&query=")!
-    }
-    
-    func path() -> String {
-        switch self {
-        case .search (let str):
-            return str
-        }
-    }
-}
-
-
 final class NetworkManager {
     static let shared = NetworkManager()
     private let baseURL = "https://api.kinopoisk.dev/v1.4/movie/"
@@ -117,32 +101,3 @@ final class NetworkManager {
     }
 
 }
-
-// 5
-//enum ImageLoaderError: Error {
-//  case incorrectImageData
-//}
-//
-//// 6
-//final class ImageLoader: ObservableObject, Sendable {
-//  private let imageUrl: URL
-//
-//  // 1
-//  init(imageUrl: URL) {
-//    self.imageUrl = imageUrl
-//  }
-//
-//  // 2
-//  var image: Image {
-//    // 3
-//    get async throws {
-//      // 4
-//      let (data, _) = try await URLSession.shared.data(from: imageUrl)
-//      // 5
-//        guard let image = Image() else {
-//        throw ImageLoaderError.incorrectImageData
-//      }
-//      return image
-//    }
-//  }
-//}

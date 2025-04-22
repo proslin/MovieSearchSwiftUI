@@ -12,18 +12,10 @@ struct EditFavouriteMovieView: View {
     @Bindable var movie: Movie
     var body: some View {
         Form {
-            TextField("Name", text: $movie.name)
-            TextField("AlternativeName", text: $movie.alternativeName)
-            TextField("Year", value: $movie.year, formatter: NumberFormatter())
+            TextField("Название", text: $movie.name)
+            TextField("Альтернативное название", text: $movie.alternativeName)
+            TextField("Год", value: $movie.year, formatter: NumberFormatter())
 
-//            Section("Priority") {
-//                Picker("Priority", selection: $destination.priority) {
-//                    Text("Meh").tag(1)
-//                    Text("Maybe").tag(2)
-//                    Text("Must").tag(3)
-//                }
-//                .pickerStyle(.segmented)
-//            }
         }
         .navigationTitle("Редактируем информацию о фильме")
         .navigationBarTitleDisplayMode(.inline)

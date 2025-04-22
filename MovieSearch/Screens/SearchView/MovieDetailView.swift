@@ -10,7 +10,6 @@ import SwiftUI
 struct MovieDetailView: View {
     
     let movie: Movie
-    //    let persons: Array<Person>
     
     @Environment(\.dismiss) var dismiss
     @Environment(\.modelContext) var modelContext
@@ -18,8 +17,6 @@ struct MovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                
-                
                 AsyncImage(url: URL(string: movie.poster?.url ?? "")) { image in
                     image
                         .resizable()
@@ -33,33 +30,15 @@ struct MovieDetailView: View {
                     .frame(width: 250, height: 300)
                     .padding()
                 }
-                
-                
-//                Image("placeholder")
-//                    .resizable()
-//                    .aspectRatio(contentMode: .fit)
-//                    .frame(width: 250, height: 300)
-//                    .padding()
-                Text("\(movie.name) \(Text("\(movie.year)".replacingOccurrences(of: " ", with: "")))")
+
+                Text("\(!movie.name.isEmpty ? movie.name : movie.alternativeName) \(Text("\(movie.year)".replacingOccurrences(of: " ", with: "")))")
                     .font(.title)
                     .padding(.bottom)
-                
-                HStack {
-                    Button {
-                        addMovie()
-                    } label: {
-                        Text("+ Буду смотреть")
-                    }
-                    .modifier(StandardButtonStyle())
-                    .padding(.bottom, 30)
-                    Button {
-                        
-                    } label: {
-                        Text("✓ Просмотрено")
-                    }
-                    .modifier(StandardButtonStyle())
-                    .padding(.bottom, 30)
+
+                Button("+ Буду смотреть") {
+                    addMovie()
                 }
+                .buttonStyle(PressedButtonStyle(color: .green, pressedColor: .orange))
                 
                 Text("O фильме")
                     .font(.title3)
@@ -83,11 +62,8 @@ struct MovieDetailView: View {
                         .font(.title2)
                         .foregroundStyle(.orange)
                 }
-                PersonsListView(persons: movie.persons ?? [])
-//                Text(movie.persons?.first?.name ?? "Тест")
+                PersonsListView(castsViewModel: CastViewModel(movieId: movie.id))
             }
-            //            .task {
-            //                PersonsListViewModel(movieId: movie.id).getMovieWithPersons()
         }
         .overlay(Button {
             dismiss()

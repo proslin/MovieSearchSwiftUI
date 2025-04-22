@@ -66,12 +66,41 @@ class Person: Codable, Identifiable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
-        name = try values.decode(String.self, forKey: .name)
-        photo = try values.decode(String.self, forKey: .photo)
-        enName = try values.decode(String.self, forKey: .enName)
-        character = try values.decode(String.self, forKey: .character)
-        profession = try values.decode(String.self, forKey: .profession)
-        enProfession = try values.decode(String.self, forKey: .enProfession)
+        if let name = try values.decodeIfPresent(String.self, forKey: .name) {
+            self.name = name
+        } else {
+            self.name = ""
+        }
+//        name = try values.decode(String.self, forKey: .name)
+        if let photo = try values.decodeIfPresent(String.self, forKey: .photo) {
+            self.photo = photo
+        } else {
+            self.photo = ""
+        }
+//        photo = try values.decode(String.self, forKey: .photo)
+        if let enName = try values.decodeIfPresent(String.self, forKey: .enName) {
+            self.enName = enName
+        } else {
+            self.enName = ""
+        }
+//        character = try values.decode(String.self, forKey: .character)
+        if let character = try values.decodeIfPresent(String.self, forKey: .character) {
+            self.character = character
+        } else {
+            self.character = ""
+        }
+//        profession = try values.decode(String.self, forKey: .profession)
+        if let profession = try values.decodeIfPresent(String.self, forKey: .profession) {
+            self.profession = profession
+        } else {
+            self.profession = ""
+        }
+//        enProfession = try values.decode(String.self, forKey: .enProfession)
+        if let enProfession = try values.decodeIfPresent(String.self, forKey: .enProfession) {
+            self.enProfession = enProfession
+        } else {
+            self.enProfession = ""
+        }
     }
     
     func encode(to encoder: Encoder) throws {
