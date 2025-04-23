@@ -29,7 +29,6 @@ final class NetworkManager {
         request.addValue("application/json", forHTTPHeaderField: "accept")
         
         let (data, respone) = try await URLSession.shared.data(for: request)
-        print(respone)
         
         let object = try JSONSerialization.jsonObject(with: data)
         let prettyPrintedData = try JSONSerialization.data(
@@ -99,5 +98,4 @@ final class NetworkManager {
         }
         task.resume()
     }
-
 }

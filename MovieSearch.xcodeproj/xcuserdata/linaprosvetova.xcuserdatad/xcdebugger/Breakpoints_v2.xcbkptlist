@@ -174,8 +174,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "getMovies(searchString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -190,8 +190,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "getMovieById(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -222,8 +222,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getMovies(searchString:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -270,8 +270,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "getMovieById(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -286,9 +286,9 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "74"
-            endingLineNumber = "74"
-            landmarkName = "getMovieById(_:)"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "downloadImage(fromURLString:completed:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -302,8 +302,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "getMovieById(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +318,8 @@
             filePath = "MovieSearch/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
             landmarkName = "getMovieById(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -446,8 +446,8 @@
             filePath = "MovieSearch/Model/MovieModelByID.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "init(from:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -462,8 +462,8 @@
             filePath = "MovieSearch/Model/MovieModelByID.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "init(id:name:photo:enName:character:profession:enProfession:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,8 +494,8 @@
             filePath = "MovieSearch/Model/MovieModelByID.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "Person"
             landmarkType = "3">
          </BreakpointContent>

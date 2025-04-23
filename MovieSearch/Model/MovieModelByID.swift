@@ -12,26 +12,6 @@ struct MovieModelByID: Decodable, Identifiable {
     let id: Int
     var persons: Array<Person> = []
 }
-//
-//struct Person: Codable, Identifiable {
-//        var id: Int
-//        var name: String = ""
-//        var photo: String?
-//        var enName: String?
-//        var character: String?
-//        var profession: String = ""
-//        var enProfession: String = ""
-//    
-//    enum CodingKeys: String, CodingKey {
-//            case id
-//            case name
-//            case photo
-//            case enName
-//            case character = "description"
-//            case profession
-//            case enProfession
-//        }
-//}
 
 @Model
 class Person: Codable, Identifiable {

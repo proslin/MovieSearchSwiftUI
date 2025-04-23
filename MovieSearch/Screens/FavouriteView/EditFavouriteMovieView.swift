@@ -15,7 +15,6 @@ struct EditFavouriteMovieView: View {
             TextField("Название", text: $movie.name)
             TextField("Альтернативное название", text: $movie.alternativeName)
             TextField("Год", value: $movie.year, formatter: NumberFormatter())
-
         }
         .navigationTitle("Редактируем информацию о фильме")
         .navigationBarTitleDisplayMode(.inline)

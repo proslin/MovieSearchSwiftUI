@@ -10,13 +10,12 @@ import Combine
 final class MoviesViewModelErr: ObservableObject {
     var movieAPI = MovieAPI.shared
     // input
-    @Published var indexEndpoint: Int = 2
+    @Published var indexEndpoint: Int = 0
     // output
-    @Published var movies = [Movie]()
+    @Published var movies: Array<Movie> = []
     @Published var moviesError: MovieError?
     
     init() {
-        
         $indexEndpoint
         .setFailureType(to: MovieError.self)
         .flatMap { (indexEndpoint) -> AnyPublisher<[Movie], MovieError> in

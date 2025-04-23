@@ -122,11 +122,6 @@ class Movie: Codable, Identifiable {
 struct ImageURLs: Codable {
     let url: String?
     let previewUrl: String?
-    
-//    enum posterCodingKeys: String, CodingKey {
-//            case url
-//            case previewUrl = "previewUrl"
-//        }
 }
 
 struct BasicNameItem: Codable {
@@ -134,6 +129,6 @@ struct BasicNameItem: Codable {
 }
 
 struct RatingModel: Codable {
-    let kp: Double
-    let imdb: Double
+    var kp: Double
+    var imdb: Double
 }

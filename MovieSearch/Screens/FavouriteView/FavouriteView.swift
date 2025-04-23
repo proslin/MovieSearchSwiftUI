@@ -28,7 +28,7 @@ struct FavouriteView: View {
             .navigationTitle("Любимые фильмы")
             .navigationDestination(for: Movie.self, destination: EditFavouriteMovieView.init)
             .toolbar {
-                Button("Добавить фильм", systemImage: "plus", action: addMoview)
+                Button("Добавить фильм", systemImage: "plus", action: addMovie)
             }
         }
     }
@@ -40,7 +40,7 @@ struct FavouriteView: View {
         }
     }
     
-    func addMoview() {
+    func addMovie() {
         let movie = Movie(id: Int.random(in: 1..<100000), name: "", alternativeName: "", enName: "", year: 0, fullDescription: "", movieLength: 0, countries: [])
         modelContext.insert(movie)
         path = [movie]
